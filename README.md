@@ -1,10 +1,10 @@
 # ImmutelyAssesment
-
+```
 Immutely Assesment - Sandeep Roy
 github - https://github.com/sandeepRoy/ImmutelyAssesment
 email - sandeep.roy2014@gmail.com
 phone - 9178386506
-
+```
 
 A. SETUP
 
@@ -18,36 +18,38 @@ A. SETUP
    a) http://localhost:8080/swagger-ui/index.html - Product related CRUDs
    b) http://localhost:8081/swagger-ui/index.html - Multiple products price update
    
-
 B. Product CRUDs at http://localhost:8080/swagger-ui/index.html
 
 1. Get all products -  
    -> Please use this endpoint : GET - immutly/products
    -> This endpoint doesn't expectes any arguments or path variables
    -> depending on number of records in table, relevent list will be displayed in below format(assuming 2 records present)
-      [
-  	{
+   ```
+   [
+  	  {
     		"id": 2,
     		"name": "Asus Vivobook 15",
     		"description": "Laptop",
     		"price": 26903,
     		"availibility": "In Stock"
-  	},
-  	{
+  	  },
+  	  {
     		"id": 3,
     		"name": "Asus Zenfone Max M1",
     		"description": "Smartphone",
     		"price": 9563,
     		"availibility": "In Stock"
-  	}
-      ]
+  	  }
+   ]
+   ```
       
  
- 2. Get a product by providing id
+ 3. Get a product by providing id
    -> Please use this endpoint : GET - /immutly/products/{product_id}
    -> This endpoint expectes a path variables of integer type
    -> depending on the provided path variable, relevent data will be displayed in below format
    A. Success:
+   ```
    {
   	"id": 2,
   	"name": "Asus Vivobook 15",
@@ -55,8 +57,10 @@ B. Product CRUDs at http://localhost:8080/swagger-ui/index.html
   	"price": 26903,
   	"availibility": "In Stock"
    }
+   ```
    
    B. ID not present:
+   ```
    {
   	"timestamp": "2023-12-16T16:07:31.218+00:00",
   	"status": 500,
@@ -64,7 +68,7 @@ B. Product CRUDs at http://localhost:8080/swagger-ui/index.html
   	"message": "Product not found with given id",
   	"path": "/immutly/products/1"
    }
-   
+   ```
 3. Create a Product
    -> Please use this endpoint : POST - /immutly/products
    -> No argument/ path varibale expected
@@ -73,14 +77,16 @@ B. Product CRUDs at http://localhost:8080/swagger-ui/index.html
    -> Scenario - 1 : all valid data
    
    Request: 
+   ```
    {
   	"name": "Apple Macbook Air",
   	"description": "Laptop",
   	"price": 59256.00,
   	"availibility": "In Stock"
    }
-   
+   ```
    Response:
+   ```
    {
   	"id": 36,
   	"name": "Apple Macbook Air",
@@ -88,18 +94,20 @@ B. Product CRUDs at http://localhost:8080/swagger-ui/index.html
   	"price": 59256,
   	"availibility": "In Stock"
    }
-   
+   ```
    -> Scenario - 2 : price negetive
    
-   Request: 
+   Request:
+   ``` 
    {
   	"name": "Apple Macbook Air",
   	"description": "Laptop",
   	"price": -59256.00,
   	"availibility": "In Stock"
    }
-   
+   ```
    Response:
+   ```
    {
   	"timestamp": "2023-12-16T16:13:03.121+00:00",
   	"status": 500,
@@ -107,18 +115,20 @@ B. Product CRUDs at http://localhost:8080/swagger-ui/index.html
   	"message": "Product price is lesser than Zero",
   	"path": "/immutly/products"
    }
-   
+   ```
    -> Scenario - 3 : Missing Field data
    
-   Request: 
+   Request:
+   ``` 
    {
   	"name": "Apple Macbook Air",
   	"description": "Laptop",
   	"price": -59256.00,
   	"availibility": "In Stock"
    }
-   
+   ```
    Response:
+   ```
    {
   	"timestamp": "2023-12-16T16:13:03.121+00:00",
   	"status": 500,
@@ -126,9 +136,9 @@ B. Product CRUDs at http://localhost:8080/swagger-ui/index.html
   	"message": "Field / Fields can't be empty",
   	"path": "/immutly/products"
    }
-   
+   ```
 
-4. Update a Product by providing id
+5. Update a Product by providing id
    -> Please use this endpoint : PUT - /immutly/products/{product_id}
    -> argument/ path varibale expected
    -> depending on the provided payload, relevent data will be displayed in below format
@@ -136,14 +146,16 @@ B. Product CRUDs at http://localhost:8080/swagger-ui/index.html
    
    -> Scenario - 1: All valid data
    Request: product_id = 35(in argument)
+   ```
    {
   	"name": "Apple Macbook Air",
   	"description": "Laptop",
   	"price": 54890.00,
   	"availibility": "In Stock"
    }
-   
+   ```
    Response:
+   ```
    {
   	"id": 35,
   	"name": "Apple Macbook Air",
@@ -151,14 +163,15 @@ B. Product CRUDs at http://localhost:8080/swagger-ui/index.html
   	"price": 54890,
   	"availibility": "In Stock"
    }
-   
+   ```
    -> other scenarios like, negetive price / field missing repsonses are simmilar as of POST's
  
    -> Scenario - 2 : ID Not present
    
    Request : product_id : 37(not present in database table) and simmilar payload like scenario - 1
    
-   Response: 
+   Response:
+   ``` 
    {
   	"timestamp": "2023-12-16T16:21:30.534+00:00",
   	"status": 500,
@@ -166,9 +179,9 @@ B. Product CRUDs at http://localhost:8080/swagger-ui/index.html
   	"message": "Product not found with given id",
   	"path": "/immutly/products/37"
    }
-   
+   ```
 
-5. Update a List of Product price updates, consisting of id & price pair
+7. Update a List of Product price updates, consisting of id & price pair
    -> Please use this endpoint : PUT - /immutly/products/price_update
    -> argument/ path varibale not expected
    -> depending on the provided payload, relevent data will be displayed in below format
@@ -178,6 +191,7 @@ B. Product CRUDs at http://localhost:8080/swagger-ui/index.html
    -> Scenario - 1 : All valid id and price
    
    Request:
+   ```
    [
   	{
     		"id": 2,
@@ -188,8 +202,9 @@ B. Product CRUDs at http://localhost:8080/swagger-ui/index.html
     		"price": 25000.00
   	}
    ]
-   
+   ```
    Response:
+   ```
    [
   	{
     		"id": 2,
@@ -206,11 +221,11 @@ B. Product CRUDs at http://localhost:8080/swagger-ui/index.html
     		"availibility": "In Stock"
   	}
    ]
-   
+   ```
    -> Scenario 2 : Invalid id : "Product not found with given id", negetive price : "Product price is lesser than Zero"
 
 
-6. Delete product by providing id
+9. Delete product by providing id
    -> Please use this endpoint : DELETE - /immutly/products/{product_id}
    -> argument/ path varibale expected
    -> depending on the provided arguement/ path variable, relevent product will be deleted
@@ -229,6 +244,7 @@ C. Product price updates at http://localhost:8081/swagger-ui/index.html
    -> Scenario - 1 : All valid id and price
    
    Request:
+   ```
    [
   	{
     		"id": 2,
@@ -239,8 +255,9 @@ C. Product price updates at http://localhost:8081/swagger-ui/index.html
     		"price": 25000.00
   	}
    ]
-   
+   ```
    Response:
+   ```
    [
   	{
     		"id": 2,
@@ -257,7 +274,7 @@ C. Product price updates at http://localhost:8081/swagger-ui/index.html
     		"availibility": "In Stock"
   	}
    ]
-   
+   ```
    -> Scenario 2 : Invalid id : "Product not found with given id", negetive price : "Product price is lesser than Zero"
      
    
