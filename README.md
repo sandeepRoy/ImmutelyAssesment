@@ -17,6 +17,8 @@ A. SETUP
 
    or
 
+   Create the jar file using 'mvn clean install' for both the projects,
+
    you can run the jar file inside target folder using 'java -jar ImmutlyClient-0.0.1-SNAPSHOT.jar' & 'java -jar ImmutlyProducts-0.0.1-SNAPSHOT.jar'
 
 3. Once both the projects are up & running on port 8080 & 8081 respectively, please open below two swagger docs
