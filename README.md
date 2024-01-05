@@ -9,10 +9,15 @@ phone - 9178386506
 A. SETUP
 
 1. Please ensure to update the database connection url and credentials in application.properties of ImmutelyProduct.
-   Also please make sure, a blank schema with name - 'immutely' exists in your database
+   Also please make sure, a blank schema with name - 'immutely' exists in your database. You leave the schema blank and or import immutely.sql
+   
 
 2. Kindly, run the two projects(ImmutelyProduct & ImmutelyClient) separately using a Spring compatible IDE(Intellij IDEA).
    You can run the projects using their Main class(ImmutlyProductsApplication & ImmutlyClientApplication)
+
+   or
+
+   you can run the jar file inside target folder using 'java -jar ImmutlyClient-0.0.1-SNAPSHOT.jar' & 'java -jar ImmutlyProducts-0.0.1-SNAPSHOT.jar'
 
 3. Once both the projects are up & running on port 8080 & 8081 respectively, please open below two swagger docs
    a) http://localhost:8080/swagger-ui/index.html - Product related CRUDs
