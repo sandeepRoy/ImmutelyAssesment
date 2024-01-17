@@ -1,4 +1,4 @@
-## It's been 1 months, since i've submitted the assingment, still haven't heard back.  
+## It's been 1 month, since i've submitted the assingment, still haven't heard back.  
 
 # ImmutelyAssesment
 ```
